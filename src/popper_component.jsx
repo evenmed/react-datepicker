@@ -2,7 +2,7 @@ import classnames from "classnames";
 import React from "react";
 import PropTypes from "prop-types";
 import { Manager, Reference, Popper, placements } from "react-popper";
-
+import StyledWrapper from "./styled_wrapper";
 export const popperPlacementPositions = placements;
 
 export default class PopperComponent extends React.Component {
@@ -72,14 +72,16 @@ export default class PopperComponent extends React.Component {
 
     return (
       <Manager>
-        <Reference>
-          {({ ref }) => (
-            <div ref={ref} className="react-datepicker-wrapper">
-              {targetComponent}
-            </div>
-          )}
-        </Reference>
-        {popper}
+        <StyledWrapper>
+          <Reference>
+            {({ ref }) => (
+              <div ref={ref} className="react-datepicker-wrapper">
+                {targetComponent}
+              </div>
+            )}
+          </Reference>
+          {popper}
+        </StyledWrapper>
       </Manager>
     );
   }
